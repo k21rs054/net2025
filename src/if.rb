@@ -73,3 +73,10 @@ puts "not three" unless q==3
 
 # case文
 # JavaのSwitch文
+
+
+z = if q==3
+  puts "three"
+end
+pp z
+
