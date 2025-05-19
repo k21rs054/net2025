@@ -1,0 +1,3 @@
+PrintHello
+書き込みRuby
+あああああ
