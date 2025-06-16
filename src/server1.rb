@@ -10,6 +10,8 @@ def server sock
 end
 
 s0 = TCPServer.open(80)
-sock = s0.accept
-server sock
+while true
+  sock = s0.accept
+  server sock
+end
 s0.close
