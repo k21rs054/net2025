@@ -22,7 +22,7 @@ loop do
       # ユーザ名の重複確認
       # 重複 → 強制的に終了
       if used_usernames.include?(username)
-        client.puts "エラー: そのユーザ名はすでに使われています"
+        client.puts "ERROR: そのユーザ名はすでに使われています"
         clients.delete(client)
         client.close
         next
@@ -32,6 +32,10 @@ loop do
       usernames[client] = username
       used_usernames << username
       puts "#{username} が参加しました"
+      
+      # 何も表示されないけど、バグが発生したため
+      # → これがないとクライアント側がユーザ名を入れた後止まったままになる
+      client.puts "通知: ようこそ、#{username} さん！"
 
       # 他のクライアントに通知
       clients.each do |c|

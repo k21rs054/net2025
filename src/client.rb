@@ -10,6 +10,14 @@ puts "終了するときは \"exit\" と入力してください"
 sock = TCPSocket.open("localhost", 80)
 sock.puts username  # ユーザ名の送信
 
+# ユーザ名の重複確認
+response = sock.gets&.chomp
+if response && response.start_with?("ERROR:")
+  puts response
+  sock.close
+  exit
+end
+
 # メッセージ受信
 Thread.new do
   loop do
