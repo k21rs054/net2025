@@ -59,7 +59,7 @@ loop do
     ensure # 最後に実行 (切断)
       clients.delete(client)
       name = usernames.delete(client)
-      puts "#{name} が切断しました"
+      puts "#{name} が退出しました"
 
       # 他のクライアントに退出の通知
       clients.each do |c|
